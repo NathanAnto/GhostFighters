@@ -10,6 +10,7 @@ extents = Vector2( 45, 52.5 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+hp = 20
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
@@ -22,7 +23,12 @@ shape = SubResource( 2 )
 [node name="WeakGlove" parent="." instance=ExtResource( 4 )]
 position = Vector2( 69, 5 )
 scale = Vector2( 3, 3 )
+damage = 2
 
 [node name="StrongGlove" parent="." instance=ExtResource( 3 )]
 position = Vector2( -22, 23 )
 scale = Vector2( 3, 3 )
+damage = 5
+
+[connection signal="body_entered" from="WeakGlove" to="WeakGlove" method="ColliderHit"]
+[connection signal="body_entered" from="StrongGlove" to="StrongGlove" method="ColliderHit"]

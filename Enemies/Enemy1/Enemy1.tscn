@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45, 52.5 )
 
-[node name="Enemy1" type="KinematicBody2D"]
+[node name="Enemy1" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -19,7 +19,7 @@ scale = Vector2( 3, -3 )
 texture = ExtResource( 3 )
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
-position = Vector2( -3, 1.5 )
+position = Vector2( 3, 2 )
 shape = SubResource( 1 )
 
 [node name="StrongGloveEnemy" parent="." instance=ExtResource( 1 )]

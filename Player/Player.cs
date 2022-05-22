@@ -3,7 +3,7 @@ using System;
 
 public class Player : KinematicBody2D
 {
-    public int hp;
+    [Export] public int hp;
 
     public Vector2 ScreenSize; // Size of the game window.
 	public const int MAXSPEED = 50;
@@ -46,24 +46,12 @@ public class Player : KinematicBody2D
     {
         sprite.Texture = GhostNormal;
 	    var inputVector = Vector2.Zero;
-        
-        if (Input.IsActionPressed("right")) {
-            inputVector.x += 1;
-        }
 
-        if (Input.IsActionPressed("left")) {
-            inputVector.x -= 1;
-        }
-        
-        if (inputVector.Length() > 0) {
-            inputVector = inputVector.Normalized() * MAXSPEED;
-        }
-
-        Position += inputVector * delta;
-        Position = new Vector2(
-            x: Mathf.Clamp(Position.x, 0, ScreenSize.x),
-            y: Mathf.Clamp(Position.y, 0, ScreenSize.y)
+        var movement = new Vector2(
+            Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0
         );
+
+        MoveAndSlide(movement * MAXSPEED);
 
 		if(Input.IsActionJustPressed("weak_hit")) state = State.WEAK_ATTACK;
 		if(Input.IsActionJustPressed("strong_hit")) state = State.STRONG_ATTACK;
@@ -72,7 +60,7 @@ public class Player : KinematicBody2D
     private void WeakAttackState(float delta)
     {
         sprite.Texture = GhostHit;
-        var animPlayer = GetNode<StaticBody2D>("WeakGlove").GetNode<AnimationPlayer>("AnimationPlayer");
+        var animPlayer = GetNode<Area2D>("WeakGlove").GetNode<AnimationPlayer>("AnimationPlayer");
         animPlayer.Play("hit");
         if(!animPlayer.IsConnected("animation_finished", this, "AttackEnd")) {
             animPlayer.Connect("animation_finished", this, "AttackEnd");
@@ -82,7 +70,7 @@ public class Player : KinematicBody2D
     private void StrongAttackState(float delta)
     {
         sprite.Texture = GhostHit;
-        var animPlayer = GetNode<StaticBody2D>("StrongGlove").GetNode<AnimationPlayer>("AnimationPlayer");
+        var animPlayer = GetNode<Area2D>("StrongGlove").GetNode<AnimationPlayer>("AnimationPlayer");
         animPlayer.Play("hit");
         if(!animPlayer.IsConnected("animation_finished", this, "AttackEnd")) {
             animPlayer.Connect("animation_finished", this, "AttackEnd");
