@@ -1,0 +1,8 @@
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\bin\Debug\GhostFighters.dll
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\bin\Debug\GhostFighters.pdb
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.csprojAssemblyReference.cache
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.AssemblyInfoInputs.cache
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.AssemblyInfo.cs
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.csproj.CoreCompileInputs.cache
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.dll
+C:\Users\natha\Documents\Nathan\Game dev\Game projects\Godot\ObnoxiousGames\GhostFighters\.mono\temp\obj\Debug\GhostFighters.pdb
