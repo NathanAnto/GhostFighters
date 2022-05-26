@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public class Enemy1 : KinematicBody2D
+public class Enemy2 : KinematicBody2D
 {
-    [Export] public int health = 5;
+    [Export] public int health = 10;
     [Export] public string glovesColor = "blue";
 
     [Signal] public delegate void died();
@@ -37,9 +37,7 @@ public class Enemy1 : KinematicBody2D
     }
 
     private void Die() {
-        GD.Print("DEAD");
         cs.Disconnect("DealDamageToEnemy", this, "TakeDamage");
-        // cs.EmitSignal(nameof(CustomSignals.ChangeScene), "res://Scenes/Fight2.tscn");
         EmitSignal("died");
     }
 }

@@ -1,21 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Fight2.gd" type="Script" id=2]
-[ext_resource path="res://Player/Player.cs" type="Script" id=3]
-[ext_resource path="res://Enemies/Enemy1/Enemy1.cs" type="Script" id=4]
-[ext_resource path="res://Enemies/Enemy1/Enemy1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Fight.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Enemy2/Enemy2.tscn" type="PackedScene" id=3]
 
 [node name="Fight2" type="Node2D"]
 script = ExtResource( 2 )
+next_level_name = "Fight3"
+next_enemy_health = 20
 
-[node name="Player" type="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 75, 124 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 75, 125 )
 scale = Vector2( 0.15, 0.15 )
-script = ExtResource( 3 )
-hp = 20
 
-[node name="Enemy2" type="KinematicBody2D" parent="." groups=["Enemy"] instance=ExtResource( 5 )]
-position = Vector2( 130, 124 )
+[node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource( 3 )]
+position = Vector2( 250, 125 )
 scale = Vector2( 0.15, 0.15 )
-script = ExtResource( 4 )
