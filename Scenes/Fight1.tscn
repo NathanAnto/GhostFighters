@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Enemy1/Enemy1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Fight1.gd" type="Script" id=3]
 
 [node name="Fight1" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 66, 113 )
+position = Vector2( 75, 124 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 125, 113 )
+position = Vector2( 130, 124 )
 scale = Vector2( 0.15, 0.15 )

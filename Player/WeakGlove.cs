@@ -17,7 +17,7 @@ public class WeakGlove : Area2D
 
     public void ColliderHit(Node node) {
         if(node.IsInGroup("Enemy") && node.HasMethod("TakeDamage")) {
-            cs.EmitSignal("DealDamageToEnemy", damage);
+            cs.EmitSignal(nameof(CustomSignals.DealDamageToEnemy), damage);
         }
     }
 }

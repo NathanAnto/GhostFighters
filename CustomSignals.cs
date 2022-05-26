@@ -8,4 +8,7 @@ public class CustomSignals : Node
     
     [Signal] public delegate void DealDamageToEnemy(int damage);
     [Signal] public delegate void DealDamageToPlayer(int damage);
+
+    [Signal] public delegate void ChangeScene(string scenePath);
+    [Signal] public delegate void GameOver();    
 }
