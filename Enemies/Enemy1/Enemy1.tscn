@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Enemies/StrongGlove.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemies/WeakGlove.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/StrongGlove.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/WeakGlove.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/Ghosts/GhostNormal.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Enemy1/Enemy1.cs" type="Script" id=4]
 [ext_resource path="res://Enemies/StrongGloveEnemy.cs" type="Script" id=5]
@@ -12,6 +12,7 @@ extents = Vector2( 45, 52.5 )
 
 [node name="Enemy1" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 4 )
+health = 20
 glovesColor = "yellow"
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -23,12 +24,17 @@ texture = ExtResource( 3 )
 position = Vector2( 3, 2 )
 shape = SubResource( 1 )
 
-[node name="StrongGloveEnemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 23, 24 )
-scale = Vector2( -3, 3 )
-script = ExtResource( 5 )
-
-[node name="WeakGloveEnemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( -76, 15 )
+[node name="WeakGlove" parent="." instance=ExtResource( 2 )]
+position = Vector2( -69, 5 )
 scale = Vector2( -3, 3 )
 script = ExtResource( 6 )
+damage = 2
+
+[node name="StrongGlove" parent="." instance=ExtResource( 1 )]
+position = Vector2( 22, 24 )
+scale = Vector2( -3, 3 )
+script = ExtResource( 5 )
+damage = 4
+
+[connection signal="body_entered" from="WeakGlove" to="WeakGlove" method="ColliderHit"]
+[connection signal="body_entered" from="StrongGlove" to="StrongGlove" method="ColliderHit"]

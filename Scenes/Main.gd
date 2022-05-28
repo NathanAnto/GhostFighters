@@ -11,7 +11,6 @@ func _ready():
 
 
 func change_scene(next_level_name: String):
-	print(next_level_name)
 	next_level = load("res://Scenes/" + next_level_name + ".tscn").instance();
 	anim_player.play("fade_in");
 	next_level.connect("scene_changed", self, "change_scene");

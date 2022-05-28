@@ -10,9 +10,17 @@ next_level_name = "Fight4"
 next_enemy_health = 50
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 75, 125 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 74, 128 )
+health = 20
+
+[node name="Timer" type="Timer" parent="Player"]
 
 [node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
 position = Vector2( 250, 125 )
 scale = Vector2( 0.15, 0.15 )
+health = 40
+
+[node name="Edge" type="Position2D" parent="Enemy"]
+position = Vector2( 366.667, -20 )
+
+[node name="Timer" type="Timer" parent="Enemy"]

@@ -6,15 +6,15 @@ signal set_player_health_ui(damage);
 signal set_enemy_health_ui(damage);
 
 export var next_level_name = "Fight";
-export var next_enemy_health = 5;
+export var next_enemy_health = 20;
 
 # Called when the node enters the scene tree for the first time.
 
 func on_scene_load():
-	# $Player.connect("died, self, "on_player_death")
+	$Player.connect("died", self, "on_player_death")
 	$Enemy.connect("died", self, "on_enemy_death");
 	
-	# $Player.connect("damageTaken, self, "on_player_damage_taken")
+	$Player.connect("damageTaken", self, "on_player_damage_taken")
 	$Enemy.connect("damageTaken", self, "on_enemy_damage_taken");
 	connect_all();
 	

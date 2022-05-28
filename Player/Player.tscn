@@ -8,9 +8,9 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 45, 52.5 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
+scale = Vector2( 0.15, 0.15 )
 script = ExtResource( 1 )
-hp = 20
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )

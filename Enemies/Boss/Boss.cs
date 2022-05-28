@@ -1,18 +1,17 @@
 using Godot;
 using System;
 
-public class Enemy2 : KinematicBody2D
-{
-    [Export] public int health = 10;
-	[Export] public string glovesColor = "blue";
+public class Boss : KinematicBody2D
+{   
+	[Export] public int health = 20;
+    [Export] public string glovesColor = "green";
 
-	[Signal] public delegate void died();
-	[Signal] public delegate void damageTaken(int damage);
+    [Signal] public delegate void died();
+    [Signal] public delegate void damageTaken(int damage);
 
-	private State state = State.MOVE;
-	
-	
-	private const float MAXSPEED = 50f;
+    private State state = State.MOVE;
+    
+    	private const float MAXSPEED = 30f;
 	private Sprite sprite;
 	private Texture GhostNormal, GhostHit, GhostStun;
 	private Node2D player;
