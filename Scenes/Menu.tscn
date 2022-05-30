@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Textures/ring_front.png" type="Texture" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Enemy1/Enemy1.tscn" type="PackedScene" id=6]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 144, 301 )
+scale = Vector2( 0.25, 0.25 )
+health = 20
+
+[node name="Timer" type="Timer" parent="Player"]
+
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 79, 237 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Edge" type="Position2D" parent="Enemy"]
+position = Vector2( 366.667, -20 )
+
+[node name="Timer" type="Timer" parent="Enemy"]
+
+[node name="FrontRope" type="Sprite" parent="."]
+position = Vector2( 160, 137.5 )
+texture = ExtResource( 4 )
