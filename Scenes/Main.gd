@@ -9,8 +9,12 @@ var next_level = null;
 func _ready():
 	current_level.on_scene_load();
 
+func play_game():
+	get_node("CanvasLayer/PlayButton").queue_free();
+	change_scene("Fight1");
 
 func change_scene(next_level_name: String):
+	print("Next level " + next_level_name);
 	next_level = load("res://Scenes/" + next_level_name + ".tscn").instance();
 	anim_player.play("fade_in");
 	next_level.connect("scene_changed", self, "change_scene");

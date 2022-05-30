@@ -74,9 +74,7 @@ public class Enemy1 : KinematicBody2D
 
 	private void MoveState(float delta)
 	{
-		// sprite.Texture = GhostNormal;
-		velocity = Vector2.Zero;
-		
+		sprite.Texture = GhostNormal;
 		// Go towards
 		if (difference > 55f) {
 			velocity = GlobalPosition.DirectionTo(player.Position);
@@ -163,6 +161,7 @@ public class Enemy1 : KinematicBody2D
 	}
 
 	public void AttackEnd(string name) {
+		velocity = GlobalPosition.DirectionTo(edge.Position);
 		if(weakAnimPlayer.IsConnected("animation_finished", this, "AttackEnd"))
 			weakAnimPlayer.Disconnect("animation_finished", this, "AttackEnd");
 		if(strongAnimPlayer.IsConnected("animation_finished", this, "AttackEnd"))
@@ -193,6 +192,7 @@ public class Enemy1 : KinematicBody2D
 	public void TakeDamage(int damage) {
 		if(state == State.BLOCK) damage -= 1;
 		health -= damage;
+		velocity = GlobalPosition.DirectionTo(edge.Position);
 
 		if (damage == 2 && state != State.BLOCK) state = State.STUN;
 

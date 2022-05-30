@@ -28,6 +28,7 @@ func on_player_damage_taken(damage):
 
 # ENEMY
 func on_enemy_death():
+	print("next level " + next_level_name)
 	emit_signal("scene_changed", next_level_name);
 
 func on_enemy_damage_taken(damage):

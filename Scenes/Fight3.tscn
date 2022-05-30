@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Enemy3/Enemy3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/ring_front.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Fight.gd" type="Script" id=4]
 
 [node name="Fight3" type="Node2D"]
@@ -10,17 +11,22 @@ next_level_name = "Fight4"
 next_enemy_health = 50
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 74, 128 )
+position = Vector2( 80, 115 )
+scale = Vector2( 0.25, 0.25 )
 health = 20
 
 [node name="Timer" type="Timer" parent="Player"]
 
 [node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource( 2 )]
-position = Vector2( 250, 125 )
-scale = Vector2( 0.15, 0.15 )
+position = Vector2( 250, 115 )
+scale = Vector2( 0.25, 0.25 )
 health = 40
 
 [node name="Edge" type="Position2D" parent="Enemy"]
 position = Vector2( 366.667, -20 )
 
 [node name="Timer" type="Timer" parent="Enemy"]
+
+[node name="FrontRope" type="Sprite" parent="."]
+position = Vector2( 160, 137.5 )
+texture = ExtResource( 3 )

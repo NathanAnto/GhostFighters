@@ -138,6 +138,7 @@ public class Player : KinematicBody2D
 	public void TakeDamage(int damage) {
 		if(state == State.BLOCK) damage -= 1;
 		health -= damage;
+		GD.Print(health);
 
 		if (damage == 2 && state != State.BLOCK) state = State.STUN;
 
@@ -145,7 +146,6 @@ public class Player : KinematicBody2D
 
 		if (health <= 0) {
 			Die();
-			cs.EmitSignal(nameof(CustomSignals.GameOver));
 		}
 	}
 	
@@ -155,8 +155,9 @@ public class Player : KinematicBody2D
 	}
 
 	private void Die() {
+		sprite.Texture = GhostStun;
 		GD.Print("DEAD");
-		cs.EmitSignal(nameof(CustomSignals.GameOver));
+		EmitSignal("died");
 	}
 }
 
